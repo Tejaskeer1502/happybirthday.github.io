@@ -1,23 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Happy Birthday Cutiee ❤️</title>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Happy Birthday ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box} body{margin:0;font-family:system-ui;background:linear-gradient(135deg,#ff9ecf,#bfa2ff);color:white;overflow-x:hidden}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px}
-h1{font-size:clamp(2.5rem,8vw,5rem);margin:0}
-.glass{background:rgba(255,255,255,.15);backdrop-filter:blur(12px);border-radius:24px;padding:24px;margin:20px}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:30px}
-.gallery img{width:100%;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,.25);transition:.3s}
-.gallery img:hover{transform:scale(1.04) rotate(1deg)}
-.count{font-size:2rem}
-.btn{padding:14px 24px;border:none;border-radius:30px;font-size:1rem;cursor:pointer}
-#yes{background:#4caf50;color:#fff} #no{background:#ff4d6d;color:#fff;position:relative}
-.hearts span{position:fixed;bottom:-50px;animation:float 10s linear infinite;font-size:24px}
-@keyframes float{from{transform:translateY(0)}to{transform:translateY(-120vh)}}
-.section{padding:30px;max-width:1000px;margin:auto}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Poppins,sans-serif;
+background:linear-gradient(135deg,#ffd6e8,#e7d7ff,#fff6d6);
+overflow-x:hidden;color:#333;
+}
+.hero{
+height:100vh;display:flex;align-items:center;justify-content:center;
+text-align:center;padding:20px;position:relative;
+}
+.glass{
+background:rgba(255,255,255,.35);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.4);
+border-radius:35px;
+padding:40px;
+max-width:900px;
+box-shadow:0 25px 60px rgba(0,0,0,.12);
+}
+.title{
+font-family:'Great Vibes',cursive;
+font-size:clamp(4rem,10vw,7rem);
+color:#ff4f8b;
+}
+.subtitle{font-size:1.2rem;margin-top:15px}
+.countdown{margin-top:20px;font-weight:700}
+.section{padding:80px 20px;max-width:1200px;margin:auto}
+.section h2{text-align:center;margin-bottom:30px;font-size:2.5rem}
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+.card{
+background:white;border-radius:24px;padding:12px;
+box-shadow:0 15px 40px rgba(0,0,0,.1);
+transform:rotate(calc(var(--r)*1deg));
+transition:.4s;
+}
+.card:hover{transform:scale(1.05)}
+.card img{width:100%;border-radius:18px;display:block}
+.letter,.question{
+background:rgba(255,255,255,.6);
+backdrop-filter:blur(15px);
+padding:35px;border-radius:30px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+.letter p{line-height:1.9;font-size:1.1rem}
+.btn{
+padding:14px 28px;border:none;border-radius:999px;
+font-size:1rem;cursor:pointer;margin:10px;
+}
+.yes{background:#ff4f8b;color:#fff}
+.no{background:#555;color:#fff;position:relative}
+#response{font-size:1.3rem;margin-top:20px}
+.hearts{
+position:fixed;inset:0;pointer-events:none;overflow:hidden;
+}
+.heart{
+position:absolute;bottom:-30px;animation:rise linear infinite;
+}
+@keyframes rise{
+from{transform:translateY(0) scale(1)}
+to{transform:translateY(-120vh) scale(1.8)}
+}
 </style>
 </head>
 <body>
@@ -25,81 +78,83 @@ h1{font-size:clamp(2.5rem,8vw,5rem);margin:0}
 
 <section class="hero">
 <div class="glass">
-<h1>🎉 Happy Birthday Cutiee ❤️❤️</h1>
-<h2>Wishing you endless happiness today and always 🥰</h2>
-<p>A tiny website made specially for your birthday.</p>
-<div class="count" id="countdown"></div>
+<div class="title">Happy Birthday Cutiee ❤️</div>
+<p class="subtitle">Wishing you endless happiness, smiles and beautiful memories today and always 🥰</p>
+<div class="countdown" id="countdown"></div>
 </div>
 </section>
 
 <section class="section">
-<div class="glass">
-<h2>📸 Birthday Gallery</h2>
+<h2>✨ A Few Beautiful Moments ✨</h2>
 <div class="gallery">
-<img src="photo1.jpeg"><img src="photo2.jpeg"><img src="photo3.jpeg"><img src="photo4.jpeg">
-</div>
-</div>
-</section>
-
-<section class="section">
-<div class="glass">
-<h2>💌 Open My Letter</h2>
-<p>Happy Birthday! I hope your day is filled with laughter, happiness, good memories and everything that makes you smile. Thank you for being such an amazing person. May this year bring you success, joy and countless reasons to celebrate. ❤️</p>
+<div class="card" style="--r:-2"><img src="photo1.jpeg"></div>
+<div class="card" style="--r:2"><img src="photo2.jpeg"></div>
+<div class="card" style="--r:-1"><img src="photo3.jpeg"></div>
+<div class="card" style="--r:3"><img src="photo4.jpeg"></div>
 </div>
 </section>
 
 <section class="section">
-<div class="glass">
-<h2>🎁 Surprise</h2>
-<button class="btn" onclick="surprise()">Open Gift</button>
-<p id="gift"></p>
+<div class="letter">
+<h2>💌 A Little Birthday Note</h2>
+<p>
+Happy Birthday! I made this little website just for you.
+I hope this year brings you happiness, success, good health, and countless reasons to smile.
+You deserve all the wonderful things life has to offer.
+Enjoy your special day and make lots of amazing memories. ❤️
+</p>
 </div>
 </section>
 
 <section class="section">
-<div class="glass">
-<h2>Did you like my effort? 🥺</h2>
-<button id="yes" class="btn">Yes 💖</button>
-<button id="no" class="btn">No 😈</button>
-<p id="ans"></p>
+<div class="question">
+<h2>🥺 Did you like my effort?</h2>
+<div style="text-align:center">
+<button class="btn yes" id="yes">Yes 💖</button>
+<button class="btn no" id="no">No 😈</button>
+<div id="response"></div>
+</div>
 </div>
 </section>
 
 <script>
-for(let i=0;i<25;i++){
- let s=document.createElement('span');
- s.innerHTML='💖';
- s.style.left=Math.random()*100+'vw';
- s.style.animationDelay=Math.random()*10+'s';
- document.getElementById('hearts').appendChild(s);
+for(let i=0;i<50;i++){
+ const h=document.createElement('div');
+ h.className='heart';
+ h.innerHTML='💖';
+ h.style.left=Math.random()*100+'vw';
+ h.style.animationDuration=(6+Math.random()*8)+'s';
+ h.style.fontSize=(14+Math.random()*20)+'px';
+ document.getElementById('hearts').appendChild(h);
 }
 
 const target=new Date(new Date().getFullYear(),5,1);
-function update(){
+function tick(){
  let now=new Date();
  let diff=target-now;
- if(diff<=0){document.getElementById('countdown').innerHTML='🎂 It\\'s Your Day! 🎂';return;}
+ if(diff<=0){
+  document.getElementById('countdown').innerHTML='🎉 It\'s Your Special Day! 🎉';
+  return;
+ }
  let d=Math.floor(diff/86400000);
  let h=Math.floor(diff%86400000/3600000);
  let m=Math.floor(diff%3600000/60000);
- document.getElementById('countdown').innerHTML=`⏳ ${d}d ${h}h ${m}m until June 1`;
+ document.getElementById('countdown').innerHTML=`⏳ ${d} days ${h} hours ${m} minutes remaining`;
 }
-update(); setInterval(update,60000);
-
-function surprise(){
- document.getElementById('gift').innerHTML='✨ Surprise! Wishing you the happiest birthday ever! ✨';
-}
+tick(); setInterval(tick,60000);
 
 document.getElementById('yes').onclick=()=>{
- document.getElementById('ans').innerHTML='Yayyy! You made my day ❤️';
-}
+ document.getElementById('response').innerHTML='Awww, thank you! You just made this website worth it ❤️';
+};
 
 const no=document.getElementById('no');
-no.addEventListener('mouseover',()=>{
+function move(){
  no.style.position='fixed';
  no.style.left=Math.random()*(window.innerWidth-120)+'px';
  no.style.top=Math.random()*(window.innerHeight-60)+'px';
-});
+}
+no.addEventListener('mouseover',move);
+no.addEventListener('click',move);
 </script>
 </body>
 </html>
